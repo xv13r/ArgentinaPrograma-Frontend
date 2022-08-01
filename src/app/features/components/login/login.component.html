@@ -1,0 +1,48 @@
+<div class="cover"></div>
+<div class="col-md-12">
+  <div class="card card-container">
+    <h3>Iniciar sesión</h3>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <div class="alert alert-danger" *ngIf="submitted && isLoginFailed">
+          <p>{{ errorMessage }}</p>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="email">Correo electrónico</label>
+
+        <input formControlName="email" class="form-control" placeholder="Correo electrónico" name="email"
+          [ngClass]="{ 'is-invalid': submitted && emailForm?.errors }">
+
+        <div *ngIf="submitted && emailForm?.errors" class="invalid-feedback">
+          <div *ngIf="emailForm?.errors?.['required']">Requerido</div>
+          <div *ngIf="emailForm?.errors?.['minlength']">Debe tener al menos 5 caracteres</div>
+          <div *ngIf="emailForm?.errors?.['email']">Debe ser una dirección de correo electrónico válida</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password">Contraseña</label>
+
+        <input formControlName="password" class="form-control" placeholder="Contraseña" name="password"
+          [ngClass]="{ 'is-invalid': submitted && passwordForm?.errors }">
+
+        <div *ngIf="submitted && passwordForm?.errors" class="invalid-feedback">
+          <div *ngIf="passwordForm?.errors?.['required']">Requerido</div>
+          <div *ngIf="passwordForm?.errors?.['minlength']">Debe tener al menos 8 caracteres</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <div class="form-group button">
+          <button type="submit" class="btn btn-primary btn-block">
+            Ingresar
+          </button>
+          <a [routerLink]="['/register']" routerLinkActive="router-link-active">Registrarse</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

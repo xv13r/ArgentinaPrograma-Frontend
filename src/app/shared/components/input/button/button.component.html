@@ -1,0 +1,5 @@
+<div *ngIf="isLoggedIn">
+	<button type="button" [disabled]="isDisabled" (click)="onClick()" [class]="class">
+		<fa-icon [icon]="icon"></fa-icon>
+	</button>
+</div>

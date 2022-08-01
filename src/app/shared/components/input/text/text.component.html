@@ -1,0 +1,13 @@
+<div class="mb-3" *ngIf="control">
+    <label for="name">{{ label }}</label>
+    <input [formControl]="control" class="form-control" placeholder={{ label }}
+        [ngClass]="{ 'is-invalid': submitted && control?.errors }">
+
+    <div *ngIf="submitted && control?.errors" class="invalid-feedback">
+        <div *ngIf="control?.errors?.['required']">Requerido</div>
+        <div *ngIf="control?.errors?.['minlength']">Debe tener al menos {{control.errors?.['minlength'].requiredLength}} caracteres</div>
+        <div *ngIf="control?.errors?.['maxlength']">Debe tener como máximo {{control.errors?.['maxlength'].requiredLength}} caracteres</div>
+        <div *ngIf="control?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+    </div>
+
+</div>

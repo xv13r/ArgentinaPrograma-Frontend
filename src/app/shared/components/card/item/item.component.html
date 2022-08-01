@@ -1,0 +1,36 @@
+<container [ngSwitch]="size">
+    <div *ngSwitchCase="'full'" class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            <ng-container [ngTemplateOutlet]="cardItem"></ng-container>
+        </div>
+    </div>
+    <div *ngSwitchCase="'item'" style="width:220px">
+        <div class="card" style="border: transparent">
+            <ng-container [ngTemplateOutlet]="cardItem"></ng-container>
+        </div>
+    </div>
+    <div *ngSwitchDefault class="col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+            <ng-container [ngTemplateOutlet]="cardItem"></ng-container>
+        </div>
+    </div>
+</container>
+<ng-template #cardItem>
+    <div class="row g-0">
+        <div class="col-images-exact">
+            <ng-content select="card-images"></ng-content>
+        </div>
+        <div class="col-xs-12 col-sm col-md col-lg col-xl">
+            <div class="card-body">
+                <ng-content select="card-title"></ng-content>
+                <ng-content></ng-content>
+                <div class="action">
+                    <input-button (btnClick)="clickHandlerEdit()" name="edit" [isDisabled]="false"
+                        [isLoggedIn]="isLoggedIn"></input-button>
+                    <input-button (btnClick)="clickHandlerDelete()" name="delete" [isDisabled]="false"
+                        [isLoggedIn]="isLoggedIn"></input-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

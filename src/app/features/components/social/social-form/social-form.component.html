@@ -1,0 +1,124 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editar perfil</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+
+        <div class="mb-3">
+            <div class="alert alert-danger" *ngIf="submitted && isSignUpFailed">
+                <p>{{ errorMessage }}</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Facebook</label>
+            <div class="input-group">
+                <input formControlName="facebook" class="form-control" placeholder="Facebook" name="facebook"
+                    [ngClass]="{ 'is-invalid': submitted && facebookForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitFacebook()">Guardar</button>
+            </div>
+
+            <div *ngIf="submitted && facebookForm?.errors" class="invalid-feedback">
+                <div *ngIf="facebookForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="facebookForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Github</label>
+            <div class="input-group">
+                <input formControlName="github" class="form-control" placeholder="Github" name="github"
+                    [ngClass]="{ 'is-invalid': submitted && githubForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitGithub()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && githubForm?.errors" class="invalid-feedback">
+                <div *ngIf="githubForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="githubForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Instagram</label>
+            <div class="input-group">
+                <input formControlName="instagram" class="form-control" placeholder="Instagram" name="instagram"
+                    [ngClass]="{ 'is-invalid': submitted && instagramForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitInstagram()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && instagramForm?.errors" class="invalid-feedback">
+                <div *ngIf="instagramForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="instagramForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Linkedin</label>
+            <div class="input-group">
+                <input formControlName="linkedin" class="form-control" placeholder="Linkedin" name="linkedin"
+                    [ngClass]="{ 'is-invalid': submitted && linkedinForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitLinkedin()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && linkedinForm?.errors" class="invalid-feedback">
+                <div *ngIf="linkedinForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="linkedinForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Reddit</label>
+            <div class="input-group">
+                <input formControlName="reddit" class="form-control" placeholder="Reddit" name="reddit"
+                    [ngClass]="{ 'is-invalid': submitted && redditForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitReddit()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && redditForm?.errors" class="invalid-feedback">
+                <div *ngIf="redditForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="redditForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Tiktok</label>
+            <div class="input-group">
+                <input formControlName="tiktok" class="form-control" placeholder="Tiktok" name="tiktok"
+                    [ngClass]="{ 'is-invalid': submitted && tiktokForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitTiktok()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && tiktokForm?.errors" class="invalid-feedback">
+                <div *ngIf="tiktokForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="tiktokForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Twitter</label>
+            <div class="input-group">
+                <input formControlName="twitter" class="form-control" placeholder="Twitter" name="twitter"
+                    [ngClass]="{ 'is-invalid': submitted && twitterForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitTwitter()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && twitterForm?.errors" class="invalid-feedback">
+                <div *ngIf="twitterForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="twitterForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Youtube</label>
+            <div class="input-group">
+                <input formControlName="youtube" class="form-control" placeholder="Youtube" name="youtube"
+                    [ngClass]="{ 'is-invalid': submitted && youtubeForm?.errors }">
+                <button type="submit" class="btn btn-primary" (click)="onSubmitYoutube()">Guardar</button>
+            </div>
+            <div *ngIf="submitted && youtubeForm?.errors" class="invalid-feedback">
+                <div *ngIf="youtubeForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="youtubeForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeMe()">Cancelar</button>
+</div>

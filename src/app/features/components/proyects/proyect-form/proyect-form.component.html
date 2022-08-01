@@ -1,0 +1,74 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="name">Nombre</label>
+            <input formControlName="name" class="form-control" placeholder="Empresa" name="name"
+                [ngClass]="{ 'is-invalid': submitted && nameForm?.errors }">
+
+                <div *ngIf="submitted && nameForm?.errors" class="invalid-feedback">
+                    <div *ngIf="nameForm?.errors?.['required']">Requerido</div>
+                    <div *ngIf="nameForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                    <div *ngIf="nameForm?.errors?.['maxlength']">Debe tener como máximo 32 caracteres</div>
+                    <div *ngIf="nameForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+                </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="description">Descripción</label>
+
+            <input formControlName="description" class="form-control" placeholder="Descripción" name="description"
+                [ngClass]="{ 'is-invalid': submitted && descriptionForm?.errors }">
+
+                <div *ngIf="submitted && descriptionForm?.errors" class="invalid-feedback">
+                    <div *ngIf="descriptionForm?.errors?.['required']">Requerido</div>
+                    <div *ngIf="descriptionForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                    <div *ngIf="descriptionForm?.errors?.['maxlength']">Debe tener como máximo 48 caracteres</div>
+                    <div *ngIf="descriptionForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+                </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="created">Fecha</label>
+            <input type="date" formControlName="created" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && createdForm?.errors }">
+
+            <div *ngIf="submitted && createdForm?.errors" class="invalid-feedback">
+                <div *ngIf="createdForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="link">Dirección del proyecto</label>
+
+            <input formControlName="link" class="form-control" placeholder="Dirección del proyecto" name="link"
+                [ngClass]="{ 'is-invalid': submitted && linkForm?.errors }">
+
+            <div *ngIf="submitted && linkForm?.errors" class="invalid-feedback">
+                <div *ngIf="linkForm?.errors?.['required']">Requerido</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="images">Imágenes</label>
+
+            <input-file [image]="images ? images : null" class="form-control" name="images"
+                (imageChange)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && imagesForm?.errors }">
+            </input-file>
+
+            <div *ngIf="submitted && imagesForm?.errors" class="invalid-feedback">
+                <div *ngIf="imagesForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+        
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeMe()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+</div>

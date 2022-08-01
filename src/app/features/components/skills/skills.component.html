@@ -1,0 +1,4 @@
+<cards-container [title]="title" [isLoggedIn]="isLoggedIn" [size]="'item'" (btnClickCreate)="clickHandlerCreate()">
+    <skill-item *ngFor="let skill of skills" [skill]="skill">
+    </skill-item>
+</cards-container>

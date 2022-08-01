@@ -1,0 +1,74 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+        <div class="mb-3">
+            <label for="username">Nombre de usuario</label>
+            <input formControlusername="username" class="form-control" placeholder="Nombre de usuario" name="username"
+                [ngClass]="{ 'is-invalid': submitted && usernameForm?.errors }">
+
+            <div *ngIf="submitted && usernameForm?.errors" class="invalid-feedback">
+                <div *ngIf="usernameForm?.errors?.['required']">Nombre de usuario requerido</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="description">Correo electrónico</label>
+
+            <input formControlName="email" class="form-control" placeholder="Correo electrónico" name="email"
+                [ngClass]="{ 'is-invalid': submitted && emailForm?.errors }">
+
+            <div *ngIf="submitted && emailForm?.errors" class="invalid-feedback">
+                <div *ngIf="emailForm?.errors?.['required']">Correo electrónico requerido</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="description">Contraseña</label>
+
+            <input type="password" formControlName="password" class="form-control" placeholder="Contraseña" name="password"
+                [ngClass]="{ 'is-invalid': submitted && passwordForm?.errors }">
+
+            <div *ngIf="submitted && passwordForm?.errors" class="invalid-feedback">
+                <div *ngIf="passwordForm?.errors?.['required']">Contraseña requerida</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="confirm">Confirmar contraseña</label>
+
+            <input type="password" formControlName="confirm" class="form-control" placeholder="Confirmar contraseña" name="confirm"
+                [ngClass]="{ 'is-invalid': submitted && confirmForm?.errors }">
+
+            <div *ngIf="submitted && confirmForm?.errors" class="invalid-feedback">
+                <div *ngIf="confirmForm?.errors?.['required']">Confirmar contraseña requerida</div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeMe()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+</div>
+
+<!-- <ng-template social>
+    <select [(ngModel)]="selectedItem" [compareWith]="compareOption" class={{className}} [ngClass]="{ 'is-invalid': submitted && socialTypeForm?.errors }">
+        <option disabled>Seleccione</option>
+        <option value="github"><img src="/assets/images/icons/github.svg"></option>
+        <option value="linkedin"><img src="/assets/images/icons/linkedin.svg"></option>
+        <option value="reddit"><img src="/assets/images/icons/reddit.svg"></option>
+        <option value="tiktok"><img src="/assets/images/icons/tiktok.svg"></option>
+        <option value="facebook"><img src="/assets/images/icons/facebook.svg"></option>
+        <option value="instagram"><img src="/assets/images/icons/instagram.svg"></option>
+        <option value="twitter"><img src="/assets/images/icons/twitter.svg"></option>
+        <option value="youtube"><img src="/assets/images/icons/youtube.svg"></option>
+    </select>
+    <input formControlName="profile" class="form-control" placeholder="Link social" name="profile"
+    [ngClass]="{ 'is-invalid': submitted && socialProfileForm?.errors }">
+</ng-template> -->

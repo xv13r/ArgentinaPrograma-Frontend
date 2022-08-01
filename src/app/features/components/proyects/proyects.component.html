@@ -1,0 +1,4 @@
+<cards-container [title]="title" [isLoggedIn]="isLoggedIn" (btnClickCreate)="clickHandlerCreate()">
+    <proyect-item *ngFor="let proyect of proyects" [proyect]="proyect">
+    </proyect-item>
+</cards-container>

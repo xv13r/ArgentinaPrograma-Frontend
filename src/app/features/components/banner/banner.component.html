@@ -1,0 +1,9 @@
+<div class="profile-background">
+    <img [src]="image"  alt="Banner">
+    <div class="action">
+        <input-button (btnClick)="fileInput.click()" [name]="'edit'" [isDisabled]="false" [isLoggedIn]="isLoggedIn">
+        <input #fileInput type="file" id="file" (change)="clickHandlerEdit($event)"
+            style="display:none;" />
+        </input-button>
+    </div>
+</div>

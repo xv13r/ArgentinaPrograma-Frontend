@@ -1,0 +1,4 @@
+<cards-container [title]="title" [isLoggedIn]="isLoggedIn" (btnClickCreate)="clickHandlerCreate()">
+        <education-item *ngFor="let education of educations" [education]="education">
+        </education-item>
+</cards-container>

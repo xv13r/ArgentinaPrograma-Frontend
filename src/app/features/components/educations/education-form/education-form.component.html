@@ -1,0 +1,85 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+    <form *ngIf="form" [formGroup]="form">
+
+        <div class="mb-3">
+            <label for="school">Institución</label>
+
+            <input formControlName="school" class="form-control" placeholder="Institución" name="school"
+                [ngClass]="{ 'is-invalid': submitted && schoolForm?.errors }">
+
+            <div *ngIf="submitted && schoolForm?.errors" class="invalid-feedback">
+                <div *ngIf="schoolForm?.errors?.['required']">Requerido</div>
+                <div *ngIf="schoolForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="schoolForm?.errors?.['maxlength']">Debe tener como máximo 32 caracteres</div>
+                <div *ngIf="schoolForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="career">Carrera / Título</label>
+
+            <input formControlName="career" class="form-control" placeholder="Carrera / Título" name="career"
+                [ngClass]="{ 'is-invalid': submitted && careerForm?.errors }">
+
+            <div *ngIf="submitted && careerForm?.errors" class="invalid-feedback">
+                <div *ngIf="careerForm?.errors?.['required']">Requerido</div>
+                <div *ngIf="careerForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="careerForm?.errors?.['maxlength']">Debe tener como máximo 48 caracteres</div>
+                <div *ngIf="careerForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="startDate">Fecha de comienzo</label>
+            <input type="date" formControlName="startDate" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && startDateForm?.errors }">
+
+            <div *ngIf="submitted && startDateForm?.errors" class="invalid-feedback">
+                <div *ngIf="startDateForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="endDate">Fecha de finalización</label>
+            <input type="date" formControlName="endDate" class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && endDateForm?.errors }">
+
+            <div *ngIf="submitted && endDateForm?.errors" class="invalid-feedback">
+                <div *ngIf="endDateForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="category">Categoria</label>
+
+            <input-select [items]="categories" [selectedItem]="selectedItem" name="category"
+                (selectChange)="onSelectChange($event)" [className]="'form-control'"
+                [ngClass]="{ 'is-invalid': submitted && categoryForm?.errors }">
+            </input-select>
+
+            <div *ngIf="submitted && categoryForm?.errors" class="invalid-feedback">
+                <div *ngIf="categoryForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="image">Logo</label>
+
+            <input-file [image]="image ? image : null" class="form-control" name="image"
+                (imageChange)="onFileChange($event)" [ngClass]="{ 'is-invalid': submitted && imagesForm?.errors }">
+            </input-file>
+
+            <div *ngIf="submitted && imagesForm?.errors" class="invalid-feedback">
+                <div *ngIf="imagesForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeMe()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+</div>

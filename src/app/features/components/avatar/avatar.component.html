@@ -1,0 +1,12 @@
+<div class="profile">
+    <div class="profile-avatar">
+        <img [src]="image" alt="Avatar">
+        <div class="profile-action">
+            <input-button (btnClick)="fileInput.click()" [name]="'edit'" [isDisabled]="false" [isLoggedIn]="isLoggedIn">
+            <input #fileInput type="file" id="file" (change)="clickHandlerEdit($event)"
+                style="display:none;" />
+            </input-button>
+        </div>
+    </div>
+</div>
+    

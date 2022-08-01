@@ -1,0 +1,4 @@
+<input-button (btnClick)="fileInput.click()" [name]="typeButton" [isDisabled]="false" [isLoggedIn]="true">
+    <input #fileInput type="file" accept='image/*' [multiple]="multiple" (change)="onFileChange($event)"
+        style="display:none;" />
+</input-button>

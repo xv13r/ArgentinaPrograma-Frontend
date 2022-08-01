@@ -1,0 +1,9 @@
+<div class="input-group">
+
+    <input [(ngModel)]="currentDate" [min]="minDate" [max]="maxDate" class={{className}} [ngClass]="ngClass"
+        placeholder="yyyy-mm-dd" ngbDatepicker #datePicker="ngbDatepicker" (ngModelChange)="onChange($event)">
+    <button class="btn btn-outline-secondary calendar" (click)="datePicker.toggle()" type="button">
+        <fa-icon [icon]="faCalendar"></fa-icon>
+    </button>
+
+</div>

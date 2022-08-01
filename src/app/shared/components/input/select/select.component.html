@@ -1,0 +1,4 @@
+    <select [(ngModel)]="selectedItem" [compareWith]="compareOption" class={{className}} [ngClass]="ngClass" (ngModelChange)="onChange($event)">
+        <option disabled [ngValue]="null">Seleccione</option>
+        <option *ngFor="let item of items" [ngValue]="item.id">{{ item.name }}</option>  
+    </select>

@@ -1,0 +1,6 @@
+<card-item [isLoggedIn]="isLoggedIn" (btnClickEdit)="clickHandlerEdit(experience.id)" (btnClickDelete)="clickHandlerDelete(experience.id)">
+    <card-images [images]="images"></card-images>
+    <card-title [title]="company"></card-title>
+    <p class="card-text">{{ description }} - {{ employmentName }}</p>
+    <card-epoch [startDate]="startDate" [endDate]="endDate"></card-epoch>
+</card-item>

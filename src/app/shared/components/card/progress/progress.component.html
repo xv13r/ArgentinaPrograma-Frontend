@@ -1,0 +1,8 @@
+<div class="progress-container"
+[ngbPopover]="skill.description"
+[popoverTitle]="skill.name">
+    <circle-progress [subtitle]="skill.name" [percent]="skill.progress" [radius]="80" [outerStrokeWidth]="10"
+        [innerStrokeWidth]="15" [outerStrokeColor]="'#555'" [innerStrokeColor]="'#0d6efd'" [animation]="true"
+        [animationDuration]="1500"
+        ></circle-progress>
+</div>

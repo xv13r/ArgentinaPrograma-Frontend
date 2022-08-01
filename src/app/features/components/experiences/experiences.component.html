@@ -1,0 +1,4 @@
+<cards-container [title]="title" [isLoggedIn]="isLoggedIn" (btnClickCreate)="clickHandlerCreate()">
+        <experience-item *ngFor="let experience of experiences" [experience]="experience">
+        </experience-item>
+</cards-container>

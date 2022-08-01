@@ -1,0 +1,7 @@
+<card-item [isLoggedIn]="isLoggedIn" (btnClickEdit)="clickHandlerEdit(proyect.id)" (btnClickDelete)="clickHandlerDelete(proyect.id)">
+    <card-images [images]="images"></card-images>
+    <card-title [title]="name"></card-title>
+    <p class="card-text">{{ description }}</p>
+    <a [href]="link" target="_blank" rel="nofollow noopener noreferrer">{{proyect.link}}</a>
+    <p class="card-text"><small class="text-muted">{{ created | date }}</small></p>
+</card-item>

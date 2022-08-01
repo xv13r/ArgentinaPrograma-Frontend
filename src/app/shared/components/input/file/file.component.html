@@ -1,0 +1,7 @@
+<div class="preview">
+    <img [src]="image != null ? image : '../../../../assets/images/nodisponible200x200.png' " />
+    <input-button (btnClick)="fileInput.click()" [name]="typeButton" [isDisabled]="false" [isLoggedIn]="true">
+        <input #fileInput type="file" id="file" (change)="onFileChange($event)"
+            style="display:none;" />
+    </input-button>
+</div>

@@ -1,0 +1,88 @@
+<div class="modal-header">
+    <h4 class="modal-title">Editar perfil</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+
+        <div class="mb-3">
+            <div class="alert alert-danger" *ngIf="submitted && isSignUpFailed">
+                <p>{{ errorMessage }}</p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="name">Acerca</label>
+
+            <input formControlName="name" class="form-control" placeholder="Nombre" name="name"
+                [ngClass]="{ 'is-invalid': submitted && nameForm?.errors }">
+
+            <div *ngIf="submitted && nameForm?.errors" class="invalid-feedback">
+                <div *ngIf="nameForm?.errors?.['required']">Requerido</div>
+                <div *ngIf="nameForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="nameForm?.errors?.['maxlength']">Debe tener como máximo 20 caracteres</div>
+                <div *ngIf="nameForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="lastname">Apellido</label>
+
+            <input formControlName="lastname" class="form-control" placeholder="Apellido" name="lastname"
+                [ngClass]="{ 'is-invalid': submitted && lastnameForm?.errors }">
+
+            <div *ngIf="submitted && lastnameForm?.errors" class="invalid-feedback">
+                <div *ngIf="lastnameForm?.errors?.['required']">Requerido</div>
+                <div *ngIf="lastnameForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="lastnameForm?.errors?.['maxlength']">Debe tener como máximo 20 caracteres</div>
+                <div *ngIf="lastnameForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="birthday">Fecha de nacimiento</label>
+            <input type="date" formControlName="birthday" class="form-control" value="{{ profile.birthday | date:'yyyy-MM-dd' }}"
+            [ngClass]="{ 'is-invalid': submitted && birthdayForm?.errors }">
+
+            <div *ngIf="submitted && birthdayForm?.errors" class="invalid-feedback">
+                <div *ngIf="birthdayForm?.errors?.['required']">Requerido</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="about">Acerca de mi</label>
+
+            <textarea formControlName="about" class="form-control" placeholder="Acerca de mi" rows="3" name="about"
+                [ngClass]="{ 'is-invalid': submitted && aboutForm?.errors }"></textarea>
+
+            <div *ngIf="submitted && aboutForm?.errors" class="invalid-feedback">
+                <div *ngIf="lastnameForm?.errors?.['required']">Requerido</div>
+                <div *ngIf="lastnameForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="lastnameForm?.errors?.['maxlength']">Debe tener como máximo 64 caracteres</div>
+                <div *ngIf="lastnameForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+            </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="title">Título</label>
+
+            <input formControlName="title" class="form-control" placeholder="Título" name="title"
+                [ngClass]="{ 'is-invalid': submitted && titleForm?.errors }">
+
+            <div *ngIf="submitted && titleForm?.errors" class="invalid-feedback">
+                <div *ngIf="lastnameForm?.errors?.['required']">Requerido</div>
+                <div *ngIf="lastnameForm?.errors?.['minlength']">Debe tener al menos 3 caracteres</div>
+                <div *ngIf="lastnameForm?.errors?.['maxlength']">Debe tener como máximo 32 caracteres</div>
+                <div *ngIf="lastnameForm?.errors?.['pattern']">Debe tener solo números o caracteres</div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeMe()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+</div>

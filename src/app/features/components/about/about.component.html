@@ -1,0 +1,25 @@
+<app-banner></app-banner>
+<app-avatar></app-avatar>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-4">
+            <h2>{{ fullname || "" }}</h2>
+            <div class="title">{{ title || "" }}</div>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-8">
+            <h3>Acerca de</h3>
+            <p>{{ about || ""}}</p>
+        </div>
+    </div>
+    <div *ngIf="isLoggedIn" class="col-sm-12 col-md-12 col-lg-12 pb-2">
+        <button class="btn btn-primary me-1" (click)="clickHandlerEditAbout()">
+            Editar
+        </button>
+        <button class="btn btn-primary me-1" (click)="clickHandlerSocial()">
+            Redes sociales
+        </button>
+        <button class="btn btn-primary me-1" (click)="clickHandlerSections()">
+            Agregar sección
+        </button>
+    </div>
+</div>

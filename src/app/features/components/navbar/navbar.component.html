@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" *ngIf="(isInDashboard$|async)">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="https://argentinaprograma.inti.gob.ar/">
+            <img src="assets/images/icons/argentina-programa.svg" class="navbar-brand-logo"
+                alt="Logo Argentina Programa" aria-placeholder="Argentina Programa">
+            <span>Argentina Programa - #Yo Programo</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+            &#9776;
+        </button>
+
+        <div class="navbar-collapse" [ngbCollapse]="isMenuCollapsed">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item" *ngFor="let social of socials">
+                    <nav-social [social]="social"></nav-social>
+                </li>
+                <li *ngIf="!isLoggedIn" class="nav-item">
+                    <a class="nav-link" [routerLink]="'/login'">Iniciar sesion</a>
+                </li>
+                <li *ngIf="isLoggedIn"
+                class="nav-item"
+                ngbDropdown
+                display="dynamic"
+                placement="bottom-right"
+              >
+                <a
+                  class="nav-link"
+                  tabindex="0"
+                  ngbDropdownToggle
+                  id="navbarDropdown"
+                  role="button"
+                >
+                <span class="avatar">{{ firtsLetterUsername }}</span>
+                </a>
+                <div
+                  ngbDropdownMenu
+                  aria-labelledby="navbarDropdown"
+                  class="dropdown-menu"
+                >
+                  <a ngbDropdownItem (click)="logout()">Cerrar</a> 
+                </div>
+              </li>
+            </ul>
+        </div>
+    </div>
+</nav>

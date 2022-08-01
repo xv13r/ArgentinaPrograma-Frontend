@@ -1,0 +1,17 @@
+<header>
+    <app-navbar [socials]="socials"></app-navbar>
+</header>
+<main class="container-fluid w-100 h-100 ">
+    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="container">
+             <app-about (btnClickSection)="clickHandlerSection()"></app-about>
+        </div>
+    </div> 
+    <app-experiences *ngIf="sections.experiences"></app-experiences>
+    <app-educations  *ngIf="sections.educations"></app-educations>
+    <app-skills *ngIf="sections.skills"></app-skills>
+    <app-proyects *ngIf="sections.proyects"></app-proyects>
+</main>
+<footer>
+    <app-footer></app-footer>
+</footer>

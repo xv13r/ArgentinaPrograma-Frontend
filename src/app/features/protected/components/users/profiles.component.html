@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="'.'">Admin Area</a>
+  
+      <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+        &#9776;
+      </button>
+
+      <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="btn btn-danger" (click)="logout()">Cerrar</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+<div class="container-fluid pb-4 mt-4">
+    <div class="row mb-4">
+        <h1>Portfolios</h1>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Portfolio</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of items; index as i">
+                <td scope="row">{{ i + 1 }}</td>
+                <td>{{ item.name}}</td>
+                <td>{{ item.lastname}}</td>
+                <td>
+                    <a *ngIf="item.id" [routerLink]="['/profile', item.id ]">Link</a>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="clickHandlerDelete(item.id!)">
+                        <fa-icon [icon]="faTrash"></fa-icon>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

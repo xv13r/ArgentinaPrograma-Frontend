@@ -1,0 +1,38 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{title}}</h4>
+</div>
+<div class="modal-body">
+    <form [formGroup]="form">
+        <section>
+            <div>
+                <span>
+                    Experiencias
+                </span>
+                <input type="checkbox" class="switch" formControlName="experiences">
+            </div>
+            <div>
+                <span>
+                    Educacion
+                </span>
+                <input type="checkbox" class="switch" formControlName="educations">
+            </div>
+
+            <div>
+                <span>
+                    Habilidades
+                </span>
+                <input type="checkbox" class="switch" formControlName="skills">
+            </div>
+            <div>
+                <span>
+                    Proyectos
+                </span>
+                <input type="checkbox" class="switch" formControlName="proyects">
+            </div>
+        </section>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="closeMe()">Cancelar</button>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Guardar</button>
+</div>

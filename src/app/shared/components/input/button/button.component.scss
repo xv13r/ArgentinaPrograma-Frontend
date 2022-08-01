@@ -1,0 +1,50 @@
+.btn {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  text-align: center;
+  cursor: pointer;
+  padding: 3.2px;
+  -moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  color: #0d6efd;
+
+  &:hover {
+    background-position: 100% 0;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-inout;
+    transition: all .4s ease-in-out;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &.create {
+    &:hover {
+      color: goldenrod;
+    }
+  }
+
+  &.edit {
+    &:hover {
+      color: darkgrey;
+    }
+  }
+
+  &.delete {
+    &:hover {
+      color: crimson;
+    }
+  }
+
+  &.fail {
+    &:hover {
+      color: red;
+    }
+  }
+}
